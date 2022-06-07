@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-// POINTER YANG
+// package flag
 
 func main() {
 
@@ -14,9 +14,11 @@ func main() {
 	var password = flag.String("password", "root", "put your password database")
 
 	// harus menggunakan parse untuk parse semua variable
+	// wajib panggil parse
 	flag.Parse()
 
-	fmt.Println("Host", *host)
-	fmt.Println("User", *user)
-	fmt.Println("Password", *password)
+	// * PENGGUNAAN POINTER
+	fmt.Println("Host : ", *host)
+	fmt.Println("User :", *user)
+	fmt.Println("Password : ", *password)
 }

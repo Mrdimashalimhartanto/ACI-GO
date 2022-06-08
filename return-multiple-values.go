@@ -18,6 +18,10 @@ func Bank() (string, string, string) {
 	return "BCA", "MANDIRI", "BRI"
 }
 
+func KeteranganPolis() (string, string, string) {
+	return "ACTIVE", "NOT VALID POLIS", "NOT ACTIVE POLIS"
+}
+
 func main() {
 	namaDepan, _, jabatanKerja, tempatKerja := InfoNasabah()
 	fmt.Println(namaDepan, jabatanKerja, tempatKerja)
@@ -28,5 +32,8 @@ func main() {
 
 	kartuBCA, kartuMandiri, kartuBRI := Bank()
 	fmt.Println(kartuBCA, kartuMandiri, kartuBRI)
+
+	ActivePolis, NotValidPolis, NotActivePolis := KeteranganPolis()
+	fmt.Println(ActivePolis, NotValidPolis, NotActivePolis)
 
 }

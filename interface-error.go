@@ -3,6 +3,7 @@ package main
 import (
 	"errors"
 	"fmt"
+	"strconv"
 )
 
 // error interface sudah ada didalam golang.cukup panggil kontrak default dari golang
@@ -62,4 +63,8 @@ func main() {
 	} else {
 		fmt.Println("Error", err.Error())
 	}
+
+	//	penggunaan function atio / itoa
+	valueInt, _ := strconv.Atoi("2000000")
+	fmt.Println(valueInt)
 }

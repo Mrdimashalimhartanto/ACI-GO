@@ -26,6 +26,14 @@ func Broker() (NamaBroker string, alamatBroker string, statusBroker string) {
 
 }
 
+func InformasiVendor() (NamaVendor string, AlamatVendor string) {
+	NamaVendor = "PT XL Asuransi Life"
+	AlamatVendor = "jl. patiunus 3"
+
+	return
+
+}
+
 func main() {
 	namaDepan, namaTengah, namaBelakang := infoNasabah()
 	fmt.Println(namaDepan, namaTengah, namaBelakang)
@@ -35,6 +43,9 @@ func main() {
 
 	NamaBroker, namaTengah, namaBelakang := Broker()
 	fmt.Println(NamaBroker, namaTengah, namaBelakang)
+
+	NamaVendor, AlamatVendor := InformasiVendor()
+	fmt.Println(NamaVendor, AlamatVendor)
 
 	//	konstanta untuk masing masing variable
 	const (

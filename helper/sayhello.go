@@ -2,7 +2,7 @@ package helper
 
 import "fmt"
 
-var GolangVersion = 112
+//var GolangVersion = 112
 
 //var version = 1
 

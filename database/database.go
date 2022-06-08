@@ -1,10 +1,14 @@
 package database
 
+//var connectionDatabase string
+
 var connection string
 var statusConnection string
 var iphost string
 
-//var connectionDatabase string
+//TODO VARIABLE UNTUK STRING NAMA KONEKSI
+
+//var PwDatabase string
 
 func init() {
 	connection = "MySQL"

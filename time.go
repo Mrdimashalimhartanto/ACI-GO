@@ -23,8 +23,9 @@ func main() {
 
 	//TODO format time rdfe3339
 
-	layout := "2020-10-02"
-	parse, _ := time.Parse(layout, "1990-03-20")
+	// FORMAT BAWAAN GOLANG
+	layout := "2006-01-02"
+	parse, _ := time.Parse(layout, "1990-02-03")
 	fmt.Println(parse)
 
 }

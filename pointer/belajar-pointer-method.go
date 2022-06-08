@@ -11,11 +11,14 @@ type IdentitasNasabah struct {
 	NamaLengkap, AlamatTempatTinggal, JenisPolis string
 }
 
-type KodeBank struct {
-	TextKode                                           string
-	KodeBank                                           string
-	BCA, MANDIRI, BNI, BRI, BANK, CIMB, NIAGA, SYARIAH string
-}
+//todo harus di buat konstanta nya untuk setup var kode bank
+
+//type KodeBank struct {
+//	TextKode                                           string
+//	KodeBank                                           string
+//	BCA, MANDIRI, BNI, BRI, BANK, CIMB, NIAGA, SYARIAH string
+//	MetodePembayaran                                   string
+//}
 
 // function pointer method
 func (man *Man) Married() {
@@ -26,10 +29,10 @@ func (id *IdentitasNasabah) DataNasabah() {
 	id.NamaLengkap = "Mr. " + id.NamaLengkap + id.AlamatTempatTinggal + id.JenisPolis
 }
 
-func (Kode *KodeBank) DetailKodeBank() {
-	Kode.TextKode = "DETAIL KODE BANK BERIKUT :"
-	Kode.KodeBank = "KODE : "
-}
+//func (Kode *KodeBank) DetailKodeBank() {
+//	Kode.TextKode = "DETAIL KODE BANK BERIKUT :"
+//	Kode.KodeBank = "KODE : "
+//}
 
 func main() {
 	peserta := Man{"Dimas", " Jl Cipinang"}
@@ -38,7 +41,7 @@ func main() {
 	detailinformasi := IdentitasNasabah{"Dimas Halim ", "Jl Cipinang ", "ASURANSI MANDIRI RECEH"}
 	detailinformasi.DataNasabah()
 
-	//kodeBank := KodeBank{""}
+	//PaymentCiputra := KodeBank{"NAMA : ", "034", ""}
 
 	fmt.Println(detailinformasi.NamaLengkap)
 

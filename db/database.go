@@ -2,11 +2,12 @@ package main
 
 import (
 	"database/sql"
+	_ "github.com/go-sql-driver/mysql"
 	"time"
 )
 
 func GetConnection() *sql.DB {
-	db, err := sql.Open("mysql", "root:@tcp(localhost:3306)/db_cms_golang")
+	db, err := sql.Open("mysql", "root:@tcp(localhost:3306)/db_clife_epay?parseTime=true")
 	if err != nil {
 		panic(err)
 	}

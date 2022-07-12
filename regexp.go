@@ -11,8 +11,9 @@ func main() {
 	fmt.Println(regex.MatchString("dis"))
 	fmt.Println(regex.MatchString("dts"))
 	fmt.Println(regex.MatchString("dDs"))
+	fmt.Println(regex.MatchString("dbs"))
 
 	//regex.FindAllString("dimas ")
-	cari := regex.FindAllString("dis das dus dos des dds dks", 6)
+	cari := regex.FindAllString("dis das dus dos des dds dks dbs", 6)
 	fmt.Println(cari)
 }

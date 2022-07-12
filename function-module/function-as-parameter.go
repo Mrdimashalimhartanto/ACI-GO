@@ -35,7 +35,7 @@ func spamKartu(nomorkartu string) string {
 
 func main() {
 	sayHelloWithFilter("Dimas", spamFilter)
-	sayHelloWithFilter("Ngentod", spamFilter)
+	sayHelloWithFilter("fuck", spamFilter)
 	nomorKartu("silahkan masukan no kartu anda : ", spamKartu)
 
 }

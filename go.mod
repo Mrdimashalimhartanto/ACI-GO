@@ -1,4 +1,4 @@
-module belajar-golang-dasar
+module ACI-GO
 
 go 1.18
 

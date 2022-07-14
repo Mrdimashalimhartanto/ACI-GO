@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"database/sql"
 	"fmt"
 	"testing"
 	"time"
@@ -11,7 +12,7 @@ import (
 
 func TestExceSql(t *testing.T) {
 
-	db1, _ := GetConnection()
+	db1 := GetConnection()
 	defer db1.Close()
 
 	ctx := context.Background()
@@ -29,7 +30,7 @@ func TestExceSql(t *testing.T) {
 //TODO: SELECT QUERY FROM MYSQL
 
 func TestQuerySql(t *testing.T) {
-	db, _ := GetConnection()
+	db := GetConnection()
 	defer db.Close()
 
 	ctx := context.Background()
@@ -54,7 +55,7 @@ func TestQuerySql(t *testing.T) {
 
 // TODO: TEST QUERY SQL COMPLETE
 func TestQuerySqlComplex(t *testing.T) {
-	db, _ := GetConnection()
+	db := GetConnection()
 	defer db.Close()
 
 	ctx := context.Background()
@@ -99,7 +100,7 @@ TODO: 5. DATE, DATETIME, TIME, TIMESTAMP -- tipe data golang = time.Time
 */
 
 func TestDBGolang(t *testing.T) {
-	db := ConnectionGOCMS()
+	db := DemodbConnection()
 	defer db.Close()
 
 	ctx := context.Background()
@@ -110,13 +111,24 @@ func TestDBGolang(t *testing.T) {
 	if err != nil {
 		panic(err)
 	}
+
+	//TODO: defer rows digunakan untuk melakukan stop pada hasil query
+	//** TODO: tipe data nullable dalam golang
+	//	tipe data golang		tipe data nullable
+	// 1. tipe data string ----- database/sql.NullString
+	// 2. bool --- database/sql.NullBool
+	// 3. float64 --- database/sql.NullFloat64
+	//*/
+
 	defer rows.Close()
 
 	for rows.Next() {
-		var id, name, email string
+		var id, name string
+		var email sql.NullString
 		var balance int32
 		var rating float64
-		var birthDate, createdAt time.Time
+		var birthDate sql.NullTime
+		var createdAt time.Time
 		var married bool
 
 		// TODO: DATA INI HARUS SAMA DENGAN DATA EXECUTE
@@ -127,7 +139,16 @@ func TestDBGolang(t *testing.T) {
 		fmt.Println("===================================")
 		fmt.Println(id)
 		fmt.Println(name)
+		if email.Valid {
+			fmt.Println("Email:", email.String)
+		}
 		fmt.Println(email)
+
+		if birthDate.Valid {
+			fmt.Println("Birth Date:", birthDate.Time)
+		}
+
 		fmt.Println(married)
+		fmt.Println("Created At", createdAt)
 	}
 }

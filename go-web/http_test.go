@@ -24,8 +24,4 @@ func TestHttp(t *testing.T) {
 	fmt.Println(response.StatusCode)
 	fmt.Println(response.Status)
 	fmt.Println(string(body))
-
-	//bodyString := string(body)
-
-	//fmt.Println(bodyString)
 }

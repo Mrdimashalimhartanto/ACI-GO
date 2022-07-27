@@ -44,16 +44,15 @@ func TestDatalogsDecode(t *testing.T) {
 }
 
 func TestJSONArrayComplexDecode(t *testing.T) {
-	jsonString := `{"Title":"callback in notif ewallet dana","Action":"charge","Type":"In","Request":"ip client 162.158.170.244","Response":"Success","Message":"Success","Order":202200000371,"BrAccount":["test","fendy.fendy","tukang it","corporate BCA","tm_ciputralife","tech team"],"Addresses":[{"Email":"test@ciputralife.com","Name":"test","Address":"Ciputra Life"},{"Email":"fendy.fendy@ciputralife.com","Name":"Fendy","Address":"Jakarta"}]}`
+	jsonString := `{"Title":"callback in notif ewallet dana","Action":"charge","Type":"In","Request":"ip client 162.158.170.244","Response":"Success","Message":"Success","Order":202200000371,"BrAccount":["test","fendy.fendy","tukang it","corporate BCA","tm_ciputralife","tech team"],"Addresses":[{"Street":"Jl Srengseng barat","Country":"Indonesia","PostalCode":"13420"},{"Street":"Jl. Jendral Sudirman","Country":"Indonesia","PostalCode":"134552"}]}
+`
 	jsonBytes := []byte(jsonString)
 
-	customer := &AccountBroker{}
+	customer := &AddressUser{}
 	err := json.Unmarshal(jsonBytes, customer)
 	if err != nil {
 		panic(err)
 	}
 
 	fmt.Println(customer)
-	fmt.Println(customer.Name)
-	fmt.Println(customer.Address)
 }

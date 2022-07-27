@@ -15,13 +15,13 @@ type Logs struct {
 	Message   string
 	Order     int
 	BrAccount []string
-	Addresses []AccountBroker
+	Addresses []AddressUser
 }
 
-type AccountBroker struct {
-	Email   string
-	Name    string
-	Address string
+type AddressUser struct {
+	Street     string
+	Country    string
+	PostalCode string
 }
 
 func TestJSONObject(t *testing.T) {
@@ -36,20 +36,32 @@ func TestJSONObject(t *testing.T) {
 		Order:     202200000371,
 		BrAccount: []string{"test", "fendy.fendy", "tukang it", "corporate BCA", "tm_ciputralife", "tech team"},
 
-		Addresses: []AccountBroker{
+		Addresses: []AddressUser{
 			{
-				Email:   "test@ciputralife.com",
-				Name:    "test",
-				Address: "Ciputra Life",
+				Street:     "Jl Srengseng barat",
+				Country:    "Indonesia",
+				PostalCode: "13420",
 			},
 			{
-				Email:   "fendy.fendy@ciputralife.com",
-				Name:    "Fendy",
-				Address: "Jakarta",
+				Street:     "Jl. Jendral Sudirman",
+				Country:    "Indonesia",
+				PostalCode: "134552",
 			},
 		},
 	}
 
 	bytes, _ := json.Marshal(datalogs)
 	fmt.Println(string(bytes))
+}
+
+func TestJSONArrayComplexCMS(t *testing.T) {
+	jsonString := `[{"Street":"Jl Srengseng barat","Country":"Indonesia","PostalCode":"13420"},{"Street":"Jl. Jendral Sudirman","Country":"Indonesia","PostalCode":"134552"}]`
+	jsonBytes := []byte(jsonString)
+
+	datalogs := &[]AddressUser{}
+	err := json.Unmarshal(jsonBytes, datalogs)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(datalogs)
 }

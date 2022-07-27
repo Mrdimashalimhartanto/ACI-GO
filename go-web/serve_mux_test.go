@@ -25,6 +25,10 @@ func TestServMux(t *testing.T) {
 		fmt.Fprint(writer, "welcome to dashboard CMS Epay")
 	})
 
+	mux.HandleFunc("/member/transactiondetail", func(writer http.ResponseWriter, request *http.Request) {
+		fmt.Fprint(writer, "Detail Transaction Member")
+	})
+
 	server := http.Server{
 		Addr:    "localhost:4000",
 		Handler: mux,
